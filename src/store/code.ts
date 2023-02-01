@@ -24,7 +24,7 @@ interface CodeState {
 }
 export const useCodeStore = create(
     persist<CodeState>(
-        (set, get) => ({
+        (set) => ({
             input: '',
             output: '',
             async transform(input: string) {
@@ -41,9 +41,9 @@ export const useCodeStore = create(
                         input,
                         output: readable
                     })
-                } catch (e) {
+                } catch (e: unknown) {
                     set({
-                        input, output: `${e}`
+                        input, output: `${e as string}`
                     })
                 }
             }
