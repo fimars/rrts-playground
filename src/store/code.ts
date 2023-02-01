@@ -38,10 +38,13 @@ export const useCodeStore = create(
                     const readable = format(middleware, { parser: 'html', plugins: [parserHtml] });
                     // const readable = format(result.code, { parser: 'babel', plugins: [parserBabel] });
                     set({
+                        input,
                         output: readable
                     })
                 } catch (e) {
-                    set({ output: `${e}` })
+                    set({
+                        input, output: `${e}`
+                    })
                 }
             }
         }),
