@@ -11,7 +11,7 @@ if (typeof window !== 'undefined') {
     void (async function () {
         if (window.__ESBUILD_INITED__) return;
         await esbuild.initialize({
-            wasmURL: '/wasm/esbuild.wasm',
+            wasmURL: '../wasm/esbuild.wasm',
         })
         window.__ESBUILD_INITED__ = true;
     })()
